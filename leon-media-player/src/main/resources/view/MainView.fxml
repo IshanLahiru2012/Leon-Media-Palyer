@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<BorderPane fx:id="root" prefHeight="520.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainViewController">
+<BorderPane fx:id="root" onMouseEntered="#rootOnMouseEntered" onMouseExited="#rootOnMouseExited" prefHeight="520.0" prefWidth="978.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainViewController">
    <center>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="523.0" prefWidth="978.0" BorderPane.alignment="CENTER">
          <children>
             <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="200.0" />
-            <VBox alignment="BOTTOM_CENTER" prefHeight="530.0" prefWidth="948.0" spacing="10.0">
+            <VBox fx:id="vBoxControl" alignment="BOTTOM_CENTER" prefHeight="113.0" prefWidth="978.0" spacing="10.0">
                <children>
-                  <Slider fx:id="sldProgress" onMouseDragged="#sldProgressOnMouseDragged" prefHeight="16.0" prefWidth="877.0">
+                  <Slider fx:id="sldProgress" onMouseDragged="#sldProgressOnMouseDragged" prefHeight="22.0" prefWidth="918.0">
                      <VBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </VBox.margin>
@@ -33,7 +33,7 @@
                         <Button fx:id="btnPlus" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlusOnAction" prefHeight="40.0" prefWidth="100.0" text="+10s" />
                         <VBox prefHeight="40.0" prefWidth="194.0">
                            <children>
-                              <Label fx:id="lblTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="31.0" prefWidth="150.0" text="0.00/0.00" textFill="#fffdfd" />
+                              <Label fx:id="lblTime" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="31.0" prefWidth="150.0" text="0.00/0.00" textFill="#b5a6a6" />
                               <Slider fx:id="sldVolume" blockIncrement="0.1" max="1.0" onMouseClicked="#sldVolumeOnMouseClicked" onMouseDragged="#sldVolumeOnMouseDragged" prefHeight="40.0" prefWidth="203.0" value="1.0" />
                            </children>
                         </VBox>

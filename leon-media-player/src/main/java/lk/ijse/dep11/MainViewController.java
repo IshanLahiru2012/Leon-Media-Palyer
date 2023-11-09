@@ -33,6 +33,7 @@ public class MainViewController {
     public Slider sldVolume;
     public Slider sldProgress;
     public Label lblTime;
+    public VBox vBoxControl;
     private MediaPlayer mediaPlayer;
     private double rate=1;
     public void initialize(){
@@ -145,25 +146,24 @@ public class MainViewController {
     public void btnPlusOnAction(ActionEvent actionEvent) {
         mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(10)));
     }
-
-
     public void sldProgressOnMouseDragged(MouseEvent mouseEvent) {
-        mediaPlayer.pause();
         Platform.runLater(()->{
             mediaPlayer.seek(mediaPlayer.getCurrentTime().add(Duration.seconds(
                     sldProgress.getValue()*mediaPlayer.getTotalDuration().toSeconds()/sldProgress.getMax()-
                             mediaPlayer.getCurrentTime().toSeconds())));
         });
-        mediaPlayer.play();
     }
-
-
     public void sldVolumeOnMouseDragged(MouseEvent mouseEvent) {
         mediaPlayer.setVolume(sldVolume.getValue());
-        System.out.println(sldVolume.getValue());
     }
     public void sldVolumeOnMouseClicked(MouseEvent mouseEvent) {
         mediaPlayer.setVolume(sldVolume.getValue());
-        System.out.println(sldVolume.getValue());
+    }
+    public void rootOnMouseEntered(MouseEvent mouseEvent) {
+        vBoxControl.setVisible(true);
+    }
+
+    public void rootOnMouseExited(MouseEvent mouseEvent) {
+        vBoxControl.setVisible(false);
     }
 }
