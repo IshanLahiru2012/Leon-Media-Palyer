@@ -7,7 +7,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -34,9 +37,14 @@ public class MainViewController {
     public Slider sldProgress;
     public Label lblTime;
     public VBox vBoxControl;
+    public ImageView imageView;
+    public Label lblVolume;
     private MediaPlayer mediaPlayer;
     private double rate=1;
     public void initialize(){
+        Image backgroundImage = new Image("img/playerUI.jpg");
+        ImageView bacgroundImageView = (ImageView) root.lookup("#imageView");
+        bacgroundImageView.setImage(backgroundImage);
         for(Button button : new Button[]{
                 btnPlay,btnStop,btnBackword,btnForward,btnMinus,btnPlus})button.setDisable(true);
         sldProgress.setDisable(true);
@@ -44,6 +52,10 @@ public class MainViewController {
 
     }
     public void btnBrowseOnAction(ActionEvent actionEvent) {
+
+        if(mediaPlayer!= null && mediaPlayer.getStatus()== MediaPlayer.Status.PLAYING){
+            btnPlay.fire();
+        }
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Media File (*.mp4,*.mp3)","*.mp4","*.mp3"));
@@ -61,6 +73,9 @@ public class MainViewController {
         fitWidth.bind(Bindings.selectDouble(mediaView.sceneProperty(),"width"));
         DoubleProperty fitHeight = mediaView.fitHeightProperty();
         fitHeight.bind(Bindings.selectDouble(mediaView.sceneProperty(),"height"));
+
+        sldVolume.setMax(mediaPlayer.getVolume());
+        lblVolume.setText(String.format("%d%%",(int)(100*mediaPlayer.getVolume())));
         mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observableValue, Duration duration, Duration t1) {
@@ -154,10 +169,15 @@ public class MainViewController {
         });
     }
     public void sldVolumeOnMouseDragged(MouseEvent mouseEvent) {
+
         mediaPlayer.setVolume(sldVolume.getValue());
+        lblVolume.setText(String.format("%d%%",(int)(100*mediaPlayer.getVolume())));
     }
     public void sldVolumeOnMouseClicked(MouseEvent mouseEvent) {
+
         mediaPlayer.setVolume(sldVolume.getValue());
+        lblVolume.setText(String.format("%d%%",(int)(100*mediaPlayer.getVolume())));
+
     }
     public void rootOnMouseEntered(MouseEvent mouseEvent) {
         vBoxControl.setVisible(true);

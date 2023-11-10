@@ -15,7 +15,7 @@ public class AppInitializer extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainView.fxml"))));
-        primaryStage.setTitle("Media Player");
+        primaryStage.setTitle("Leon Media Player");
         primaryStage.centerOnScreen();
         primaryStage.show();
 
