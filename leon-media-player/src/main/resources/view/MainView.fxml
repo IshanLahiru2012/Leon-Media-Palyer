@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="root" onMouseEntered="#rootOnMouseEntered" onMouseExited="#rootOnMouseExited" prefHeight="694.0" prefWidth="1183.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep11.MainViewController">
    <center>
@@ -36,13 +37,28 @@
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="FreeSerif Bold" size="16.0" />
+                           </font>
                         </Button>
-                        <Button id="button" fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="Play" />
-                        <Button id="button" fx:id="btnStop" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnStopOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="Stop" />
+                        <Button id="button" fx:id="btnPlay" mnemonicParsing="false" onAction="#btnPlayOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="Play">
+                           <font>
+                              <Font name="FreeSerif Bold" size="16.0" />
+                           </font></Button>
+                        <Button id="button" fx:id="btnStop" layoutX="72.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnStopOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="Stop">
+                           <font>
+                              <Font name="FreeSerif Bold" size="16.0" />
+                           </font></Button>
                         <Button id="button" fx:id="btnBackword" layoutX="134.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnBackwordOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="&lt;&lt;" />
                         <Button id="button" fx:id="btnForward" layoutX="196.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnForwardOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="&gt;&gt;" />
-                        <Button id="button" fx:id="btnMinus" layoutX="258.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnMinusOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="-10s" />
-                        <Button id="button" fx:id="btnPlus" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlusOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="+10s" />
+                        <Button id="button" fx:id="btnMinus" layoutX="258.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnMinusOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="-10s">
+                           <font>
+                              <Font name="FreeSerif Bold" size="16.0" />
+                           </font></Button>
+                        <Button id="button" fx:id="btnPlus" layoutX="320.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnPlusOnAction" prefHeight="40.0" prefWidth="100.0" stylesheets="@../css/style.css" text="+10s">
+                           <font>
+                              <Font name="FreeSerif Bold" size="16.0" />
+                           </font></Button>
                         <ImageView fitHeight="54.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/audio.png" />
