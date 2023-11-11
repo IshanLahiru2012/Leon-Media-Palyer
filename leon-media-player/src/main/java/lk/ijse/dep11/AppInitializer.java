@@ -17,6 +17,7 @@ public class AppInitializer extends Application {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainView.fxml"))));
         primaryStage.setTitle("Leon Media Player");
         primaryStage.centerOnScreen();
+        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
